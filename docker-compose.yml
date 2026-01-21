@@ -1,0 +1,24 @@
+version: '3.8'
+
+services:
+  ip-checker:
+    build: .
+    container_name: ip_checker_site
+    restart: unless-stopped
+    networks:
+      private_net:
+        ipv4_address: 10.0.0.2
+    # Мы не пробрасываем порты наружу (ports), так как доступ должен быть
+    # только внутри docker-сети или через VPN (3x-ui), который находится в той же сети
+    # или имеет маршрутизацию.
+    # Если нужно тестировать локально, раскомментируйте:
+    # ports:
+    #   - "8080:80"
+
+networks:
+  private_net:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 10.0.0.0/24  # Используем /24, так как /32 слишком мал для сети (нужен шлюз + хост)
+          gateway: 10.0.0.1
