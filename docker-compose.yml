@@ -4,9 +4,13 @@ services:
     container_name: ip_checker_site
     restart: unless-stopped
     networks:
-      hysteria_vpn:
-        ipv4_address: 10.60.0.4
+      - internal
+    ports:
+      - "10.60.0.4:80:80"
 
 networks:
-  hysteria_vpn:
-    external: true
+  internal:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.20.0.0/24
