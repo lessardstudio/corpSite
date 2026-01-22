@@ -5,10 +5,10 @@ services:
     restart: unless-stopped
     networks:
       private_net:
-        ipv4_address: 10.60.0.101
-    ports:
-      - "10.60.0.0:80:80"
-      - "127.0.0.0:80:80"
+        ipv4_address: 10.60.0.3
+    # Ports removed for security. Access only via internal Docker network or VPN (TUN).
+    # ports:
+    #   - "8081:81"
 
 networks:
   private_net:
@@ -16,3 +16,4 @@ networks:
     ipam:
       config:
         - subnet: 10.60.0.0/24
+          gateway: 10.60.0.1
