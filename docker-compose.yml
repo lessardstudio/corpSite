@@ -11,7 +11,7 @@ services:
       - /dev/net/tun
     environment:
       # Замените на ваш Network ID из панели ZeroTier!
-      - ZT_NETWORK_ID=8056c2e21c000001
+      - ZT_NETWORK_ID=8185934e6af6ceb3
     volumes:
       # Сохраняем идентификатор устройства (Node ID), чтобы он не менялся при перезапуске
       - zt_data:/var/lib/zerotier-one
