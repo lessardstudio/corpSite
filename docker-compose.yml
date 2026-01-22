@@ -4,13 +4,18 @@ services:
     container_name: ip_checker_site
     restart: unless-stopped
     networks:
-      - internal
+      private_net:
+        ipv4_address: 10.200.0.2
+    # Public Access / ZeroTier Access Enabled
+    # Maps Host Port 80 to Container Port 80
     ports:
-      - "10.60.0.4:80:80"
+      - "80:80"
 
 networks:
-  internal:
+  private_net:
     driver: bridge
     ipam:
       config:
-        - subnet: 172.20.0.0/24
+        # Changed to 10.200.0.0/24 to avoid ANY conflict with ZeroTier (172.25.x.x)
+        - subnet: 10.200.0.0/24
+          gateway: 10.200.0.1
