@@ -11,12 +11,17 @@ services:
       - /dev/net/tun
     environment:
       # Замените на ваш Network ID из панели ZeroTier!
-      - ZT_NETWORK_ID=8185934e6af6ceb3
+      - ZT_NETWORK_ID=8056c2e21c000001
     volumes:
       # Сохраняем идентификатор устройства (Node ID), чтобы он не менялся при перезапуске
       - zt_data:/var/lib/zerotier-one
-    ports:
-      - "80:80"
+    
+    # ОТКЛЮЧЕНО: Проброс портов на хост.
+    # Так как мы используем ZeroTier внутри контейнера, доступ к сайту будет через ZeroTier IP.
+    # Это решает проблему "Bind for 0.0.0.0:80 failed", если на хосте занят 80 порт.
+    # ports:
+    #   - "80:80"
+    
     networks:
       private_net:
         ipv4_address: 10.200.0.2
