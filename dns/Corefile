@@ -7,3 +7,12 @@ corp.clan:53 {
   log
   errors
 }
+corp.clan:53 tcp {
+  hosts {
+    172.25.27.64 ipchecker.corp.clan
+    172.25.27.64 tgadmin.corp.clan
+    fallthrough
+  }
+  log
+  errors
+}
