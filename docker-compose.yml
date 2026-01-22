@@ -8,7 +8,7 @@ services:
         ipv4_address: 10.60.0.3
     # Ports removed for security. Access only via internal Docker network or VPN (TUN).
     ports:
-    - "8081:81"
+    - "81:80"
 
 networks:
   private_net:
