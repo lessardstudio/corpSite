@@ -9,7 +9,7 @@ services:
     # Public Access Enabled
     # Maps Host Port 80 to Container Port 80
     ports:
-      - "80:80"
+      - "81:80"
 
 networks:
   private_net:
