@@ -5,16 +5,17 @@ services:
     restart: unless-stopped
     networks:
       private_net:
-        ipv4_address: 10.60.0.3
+        ipv4_address: 172.25.0.2
     # Public Access Enabled
     # Maps Host Port 80 to Container Port 80
     ports:
-      - "81:80"
+      - "80:80"
 
 networks:
   private_net:
     driver: bridge
     ipam:
       config:
-        - subnet: 10.60.0.0/24
-          gateway: 10.60.0.1
+        # Changed from 10.60.0.0/24 to 172.25.0.0/24 to avoid conflict with VPN Client Subnet
+        - subnet: 172.25.0.0/24
+          gateway: 172.25.0.1
