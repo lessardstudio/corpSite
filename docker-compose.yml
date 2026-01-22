@@ -4,17 +4,9 @@ services:
     container_name: ip_checker_site
     restart: unless-stopped
     networks:
-      private_net:
-        ipv4_address: 10.60.0.3
-    # Public Access Enabled
-    # Maps Host Port 80 to Container Port 80
-    ports:
-      - "81:80"
+      hysteria_vpn:
+        ipv4_address: 10.60.0.4
 
 networks:
-  private_net:
-    driver: bridge
-    ipam:
-      config:
-        - subnet: 10.60.0.0/24
-          gateway: 10.60.0.1
+  hysteria_vpn:
+    external: true
