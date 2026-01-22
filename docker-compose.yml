@@ -6,16 +6,17 @@ services:
     networks:
       private_net:
         ipv4_address: 172.25.0.2
-    # Public Access Enabled
-    # Maps Host Port 80 to Container Port 80
-    ports:
-      - "80:80"
+    # Public Access DISABLED
+    # Port 80 is NOT exposed to the host.
+    # Access is only possible via the internal IP (VPN).
+    # ports:
+    #   - "80:80"
 
 networks:
   private_net:
     driver: bridge
     ipam:
       config:
-        # Changed from 10.60.0.0/24 to 172.25.0.0/24 to avoid conflict with VPN Client Subnet
+        # Using 172.25.0.0/24 for Docker to avoid conflict with VPN (10.60.0.0/24)
         - subnet: 172.25.0.0/24
           gateway: 172.25.0.1
