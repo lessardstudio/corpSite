@@ -17,7 +17,7 @@ services:
       - zt_data:/var/lib/zerotier-one
     
     ports:
-      - "172.25.27.64:80:80"
+      - "172.25.27.64:8080:80"
     
 
 volumes:
