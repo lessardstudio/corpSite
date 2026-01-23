@@ -1,4 +1,4 @@
-.:53 {
+corp.clan:53 {
   hosts {
     172.25.27.64 ipchecker.corp.clan
     172.25.27.232 tgadmin.corp.clan
@@ -8,12 +8,8 @@
   errors
 }
 
-.:53 tcp {
-  hosts {
-    172.25.27.64 ipchecker.corp.clan
-    172.25.27.232 tgadmin.corp.clan
-    fallthrough
-  }
+.:53 {
+  forward . /etc/resolv.conf
   log
   errors
 }
