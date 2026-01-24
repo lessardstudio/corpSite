@@ -9,7 +9,7 @@ services:
     devices:
       - /dev/net/tun
     environment:
-      - ZT_NETWORK_ID=fc575e3b50192f3b
+      - ZT_NETWORK_ID=07fe0906b1426f90
     volumes:
       - zt_data:/var/lib/zerotier-one
 
