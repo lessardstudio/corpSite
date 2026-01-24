@@ -21,7 +21,8 @@ RUN mkdir -p /app/certs && \
     -out /app/certs/cert.pem \
     -keyout /app/certs/key.pem \
     -days 365 \
-    -subj "/C=RU/ST=Moscow/L=Moscow/O=CorpVPN/CN=ipchecker.corp.clan"
+    -subj "/C=RU/ST=Moscow/L=Moscow/O=CorpVPN/CN=10.121.15.105" \
+    -addext "subjectAltName=IP:10.121.15.105,DNS:ipchecker.corp.clan"
 
 EXPOSE 80 443
 
