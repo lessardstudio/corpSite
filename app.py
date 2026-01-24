@@ -47,6 +47,6 @@ if __name__ == '__main__':
     # Для HTTPS нужен SSL контекст
     app.run(
         host='0.0.0.0', 
-        port=443,
+        port=80,
         ssl_context=('/app/certs/cert.pem', '/app/certs/key.pem')
     )
