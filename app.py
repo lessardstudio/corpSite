@@ -44,5 +44,9 @@ def index():
     )
 
 if __name__ == '__main__':
-    # Listen on all interfaces
-    app.run(host='0.0.0.0', port=80)
+    # Для HTTPS нужен SSL контекст
+    app.run(
+        host='0.0.0.0', 
+        port=443,
+        ssl_context=('cert.pem', 'key.pem')  # Путь к сертификатам
+    )

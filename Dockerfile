@@ -15,7 +15,15 @@ COPY . .
 COPY entrypoint.sh .
 RUN chmod +x entrypoint.sh
 
-EXPOSE 80
+# Генерируем self-signed SSL сертификат
+RUN mkdir -p /app/certs && \
+    openssl req -x509 -newkey rsa:4096 -nodes \
+    -out /app/certs/cert.pem \
+    -keyout /app/certs/key.pem \
+    -days 365 \
+    -subj "/C=RU/ST=Moscow/L=Moscow/O=CorpVPN/CN=ipchecker.corp.clan"
+
+EXPOSE 80 443
 
 # Используем entrypoint для запуска ZT + App
 ENTRYPOINT ["./entrypoint.sh"]
