@@ -1,7 +1,7 @@
-corp.clan:53 {
+corp.lan:53 {
   hosts {
-    172.25.27.64 ipchecker.corp.clan
-    172.25.27.232 tgadmin.corp.clan
+    10.121.15.105 ipchecker.corp.lan
+    10.121.15.102 tgadmin.corp.lan
     fallthrough
   }
   log
